@@ -9,7 +9,7 @@ int main() {
     float densidade1, densidade2;
     float pib1, pib2;
     float per_capita1, per_capita2;
-    int pontos1, pontos2;
+    int pontos1, pontos2, opcao;
     float especial1, especial2;
 
     // Colhendo dados da primeira carta
@@ -48,7 +48,7 @@ int main() {
     // Colhendo dados da segunda carta
     printf("\nDigite os dados da segunda carta:\n");
     printf("Qual o código da carta? ");
-    scanf("%s", &codigo2);
+    scanf("%s", codigo2);
     printf("Qual o nome da cidade? ");
     scanf("%s", nome2);
     printf("Qual a população? ");
@@ -77,24 +77,39 @@ int main() {
     printf("Total de pontos turísticos: %d\n", pontos2);
     printf("Densidade: %.1f\n", densidade2);
     printf("Especial: %f\n", especial2);
+
+    // Menu de item a comparar
+    printf("\nQual item deseja comparar?\n");
+    printf("1 - Densidade\n");
+    printf("2 - Especial\n");
     
-    //Resultado da comparação das duas cartas:
+    // Coletando a opção do menu
+    scanf("%d", &opcao);
 
-    printf("\nCarta vencedora em densidade:\n" );
-    if(densidade1 < densidade2){
-        printf("A carta 1 é a vencedora\n");
-    }else{
-        printf("A carta 2 é a vencedora\n");
+    // Comparando a opção escolhida
+    switch(opcao) {
+        case 1:  // Comparar densidade (menor é a vencedora)
+            printf("\nCarta Vencedora em densidade:\n");
+            if(densidade1 < densidade2) {
+                printf("A Carta 1 é a vencedora (menor densidade)\n");
+            } else {
+                printf("A Carta 2 é a vencedora (menor densidade)\n");
+            }
+            break;
+
+        case 2:  // Comparar especial (maior é a vencedora)
+            printf("\nCarta Vencedora em especial:\n");
+            if(especial1 > especial2) {
+                printf("A Carta 1 é a vencedora (maior especial)\n");
+            } else {
+                printf("A Carta 2 é a vencedora (maior especial)\n");
+            }
+            break;
+
+        default:
+            printf("\nOpção inválida!\n");
+            break;
     }
-    printf("\nCarta vencedora em especial:\n" );
-    if(especial1 > especial2){
-        printf("A carta 1 é a vencedora\n" );
-    }else{
-        printf("A carata 2 é a vencedora\n" );
-    }
 
-
-   
-    
     return 0;
 }
