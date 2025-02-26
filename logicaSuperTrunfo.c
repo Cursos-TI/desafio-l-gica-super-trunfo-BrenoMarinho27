@@ -86,30 +86,30 @@ int main() {
     // Coletando a opção do menu
     scanf("%d", &opcao);
 
-    // Comparando a opção escolhida
-    switch(opcao) {
-        case 1:  // Comparar densidade (menor é a vencedora)
-            printf("\nCarta Vencedora em densidade:\n");
-            if(densidade1 < densidade2) {
-                printf("A Carta 1 é a vencedora (menor densidade)\n");
-            } else {
-                printf("A Carta 2 é a vencedora (menor densidade)\n");
-            }
-            break;
+   // Comparando a opção escolhida
+   switch(opcao) {
+    case 1:  // Comparar densidade (menor é a vencedora)
+        printf("\nComparando a Densidade entre as cartas:\n");
 
-        case 2:  // Comparar especial (maior é a vencedora)
-            printf("\nCarta Vencedora em especial:\n");
-            if(especial1 > especial2) {
-                printf("A Carta 1 é a vencedora (maior especial)\n");
-            } else {
-                printf("A Carta 2 é a vencedora (maior especial)\n");
-            }
-            break;
+        // Comparação de Densidade com operador ternário
+        printf("%s\n", densidade1 < densidade2 ? "A Carta 1 é a vencedora (menor densidade)" :
+                                (densidade1 > densidade2 ? "A Carta 2 é a vencedora (menor densidade)" :
+                                "Houve um empate em densidade!"));
+        break;
 
-        default:
-            printf("\nOpção inválida!\n");
-            break;
-    }
+    case 2:  // Comparar especial (maior é a vencedora)
+        printf("\nComparando o Especial entre as cartas:\n");
 
-    return 0;
+        // Comparação de Especial com operador ternário
+        printf("%s\n", especial1 > especial2 ? "A Carta 1 é a vencedora (maior especial)" :
+                                (especial1 < especial2 ? "A Carta 2 é a vencedora (maior especial)" :
+                                "Houve um empate em especial!"));
+        break;
+
+    default:
+        printf("\nOpção inválida!\n");
+        break;
+}
+
+return 0;
 }
